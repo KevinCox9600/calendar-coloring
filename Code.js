@@ -1,3 +1,8 @@
+var calendar = CalendarApp.getCalendarById('putYourCalendarIdHere:String');
+// begin one week before, end one year after
+var beginDate = new Date(new Date().getTime() - (7 * 86400000));
+var endDate = new Date(new Date().getTime() + (52 * 7 * 86400000));
+
 function assign_color() {
   var events = calendar.getEvents(beginDate, endDate);
   for (var i = 0; i < events.length; i++) {
@@ -11,4 +16,8 @@ function assign_color() {
       event.setColor('9');
     } else { }
   }
+}
+
+function doPost() {
+  assign_color();
 }
