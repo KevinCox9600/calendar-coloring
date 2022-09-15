@@ -76,11 +76,12 @@ addColorRule('ds', 'blue', true, false);
 addColorRule('eng', 'blue', true, false);
 addColorRule('sign', 'blue', true, false);
 addColorRule('cl', 'blue', true, false);
+// console.log(textColorPairs)
 
 /** Generate the object to represent coloring texts. */
 function addColorRule(text, color = 'red', useBoundary = false, remove = false) {
   const rule = {
-    regex: new RegExp(`/^${text + useBoundary ? '\\b' : ''}`),
+    regex: new RegExp(`/^${text + (useBoundary ? '\\b' : '')}`),
     remove,
     color: COLORS[color.toUpperCase()]
   };
